@@ -14,9 +14,30 @@ const postcssPlugins = [
 if (process.env.NODE_ENV === 'production') postcssPlugins.push(purgecss())
 
 module.exports = {
-  siteName: 'Gridsome Portfolio Starter',
-  siteDescription: 'A simple portfolio theme for Gridsome powered by Tailwind CSS v1',
+  siteName: 'Ricardo Villagrana Website',
+  siteDescription: 'A simple portfolio of Ricardo Villgrana',
   siteUrl: 'https://gridsome-portfolio-starter.netlify.com',
+  icon: {
+    favicon: {
+      src: './src/favicon.png',
+      sizes: [16, 32, 96]
+    },
+    touchicon: {
+      src: './src/favicon.png',
+      sizes: [76, 152, 120, 167],
+      precomposed: true
+    }
+  },
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.pdf/,
+          use: 'raw-loader'
+        }
+      ]
+    }
+  },
   plugins: [
     {
       use: '@gridsome/vue-remark',

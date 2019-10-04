@@ -2,11 +2,11 @@
   <div class="relative">
     <search-focus @keyup="focusSearch"></search-focus>
 
-    <div class="relative w-80">
+    <div class="relative w-full md:w-80">
       <input
         type="text"
         placeholder="Search (Press  &quot;/&quot; to focus)"
-        class="bg-background-form border border-gray-500 rounded-full px-4 pl-10 py-2 outline-none focus:border-green-500 w-80"
+        class="bg-background-form border border-gray-500 rounded-full px-4 pl-10 py-2 outline-none focus:border-gray-900 w-full md:w-80"
         v-model="query"
         @input="softReset"
         @keyup="performSearch"
@@ -31,7 +31,7 @@
       </div>
     </div>
     <transition name="fade">
-      <div v-if="query.length > 0 && searchResultsVisible" class="normal-case absolute border left-0 right-0 w-108 text-left mb-4 mt-2 rounded-lg shadow overflow-hidden z-10 overflow-y-auto" style="max-height: 32rem">
+      <div v-if="query.length > 0 && searchResultsVisible" class="normal-case absolute border left-0 right-0 w-108 text-left mb-4 mt-2 rounded-lg shadow overflow-hidden z-10 overflow-y-auto w-full md:w-auto" style="max-height: 32rem">
         <div class="flex flex-col" ref="results">
           <a
             v-for="(post, index) in results"
@@ -58,7 +58,7 @@
 
 <static-query>
   {
-    metadata{
+    metadata {
       pathPrefix
     }
   }

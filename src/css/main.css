@@ -1,9 +1,13 @@
 @tailwind base;
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono|Poppins:200,500,600,700,900&display=swap');
 
 @tailwind components;
 
 @tailwind utilities;
 
+p, div, span {
+  text-align: justify;
+}
 .theme-light {
   --bg-background-primary: white;
   --bg-background-secondary: #f7fafc;
@@ -18,11 +22,11 @@
 }
 
 .theme-light .search-highlighted {
-  background: #f0fff4;
+  @apply bg-gray-100;
 }
 
 .theme-light .search-hover:hover {
-  background: #f0fff4;
+  @apply bg-gray-100;
 }
 
 .theme-dark .markdown-body {
@@ -30,11 +34,11 @@
 }
 
 .theme-dark .search-highlighted {
-  background: #2d3748;
+  @apply bg-gray-900;
 }
 
 .theme-dark .search-hover:hover {
-  background: #2d3748;
+  @apply bg-gray-900;
 }
 
 .theme-dark {
@@ -59,11 +63,11 @@
 }
 
 a {
-  @apply text-green-700 font-bold;
+  @apply text-primary-500;
 }
 
 a:hover {
-  @apply text-green-800;
+  @apply text-primary-600;
 }
 
 nav .active {
