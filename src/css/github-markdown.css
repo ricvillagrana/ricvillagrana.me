@@ -80,18 +80,18 @@ h4 { @apply text-lg; }
 }
 
 @media screen and (max-width: 768px) {
-  .markdown-body img {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: -16px;
-    border-radius: 0px!important;
-  }
-  .markdown-body pre {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: -16px;
-    border-radius: 0px!important;
-  }
+  /* .markdown-body img { */
+  /*   width: 100vw; */
+  /*   max-width: 100vw; */
+  /*   margin-left: -16px; */
+  /*   border-radius: 0px!important; */
+  /* } */
+  /* .markdown-body pre { */
+  /*   width: 100vw; */
+  /*   max-width: 100vw; */
+  /*   margin-left: -16px; */
+  /*   border-radius: 0px!important; */
+  /* } */
 }
 
   .markdown-body code,

@@ -1,10 +1,10 @@
 <template>
   <Layout>
     <div class="hero container-inner mx-auto flex flex-col sm:flex-row justify-between py-16">
-      <div class="text-4xl font-bold w-full sm:w-3/5 text-center sm:text-left">
-        <div class="leading-tight">Ricardo Villagrana</div>
-        <div class="text-gray-600 leading-tight font-medium text-xl">ricvillagrana</div>
-        <div class="flex justify-start mt-12">
+      <div class="text-4xl font-bold w-full sm:w-3/5 text-center md:text-left">
+        <div class="leading-tight text-center md:text-left">Ricardo Villagrana</div>
+        <div class="text-gray-600 leading-tight font-medium text-xl text-center md:text-left">ricvillagrana</div>
+        <div class="flex justify-start mt-12 justify-center md:justify-start mb-6">
           <a :href="cvPath" download class="block bg-gray-900 hover:bg-gray-800 text-white hover:text-white text-sm font-semibold tracking-wide uppercase shadow rounded cursor-pointer px-6 py-3">Download my CV</a>
         </div>
       </div>
@@ -12,37 +12,34 @@
         <g-image src="../../static/developer.svg" alt="hero" class="mx-auto sm:mx-0" />
       </div>
     </div> <!-- end hero -->
-
     <div class="container-inner mx-auto my-8">
-      <p class="text-lg sm:text-xl">Full-Stack developer, focused on final product and client satisfaction. I try my best to solve the problems smartly and following the best practices.</p>
     </div>
 
     <div class="overflow-x-hidden">
-      <div class="projects container-inner mx-auto text-xl border-t border-gray-500 border-b py-16 mb-16 relative">
-        <h2 class="font-bold mb-6" id="projects">Here are some projects I've worked on:</h2>
+      <div class="container-inner mx-auto text-xl border-t border-gray-500 border-b py-16 mb-16 relative">
+        <h2 class="font-bold mb-6" id="experience">My professional experience:</h2>
 
         <div class="absolute right-0" style="top: 50px; transform: translate(100%) rotate(180deg)">
           <svg width="170px" height="170px"><use xlink:href="#dots-triangle" /></svg>
         </div>
 
         <ul class="text-lg sm:text-xl">
-          <li class="checkmark mb-6">
-            <div>Project One</div>
-            <div class="text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab nam animi iure nemo exercitationem a, eius non culpa itaque!</div>
+          <li class="checkmark pb-6" v-for="(job, key) in jobs" :key="key">
+            <div>
+              <h4 class="font-bold text-gray-700 title -mt-2">{{ job.title }}</h4>
+              <div class="italic text-base text-gray-600 mb-2">{{ job.company }} | {{ job.duration }}</div>
+              <div class="text-sm text-gray-600">{{ job.description }}</div>
+              <div class="text-lg text-gray-600">
+                <span
+                  v-for="(tech, key) in job.techStack"
+                  :key="key"
+                  class="tag"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
           </li>
-          <li class="checkmark mb-6">
-            <div>Project Two</div>
-            <div class="text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab nam animi iure nemo exercitationem a, eius non culpa itaque!</div>
-          </li>
-          <li class="checkmark mb-6">
-            <div>Project Three</div>
-            <div class="text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab nam animi iure nemo exercitationem a, eius non culpa itaque!</div>
-          </li>
-          <li class="checkmark mb-6">
-            <div>Project Four</div>
-            <div class="text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab nam animi iure nemo exercitationem a, eius non culpa itaque!</div>
-          </li>
-
         </ul>
       </div> <!-- end projects -->
     </div>
@@ -56,11 +53,10 @@
         </div>
 
         <div class="flex flex-col sm:flex-row justify-between items-center mb-16">
-          <div class="flex-1 text-lg sm:text-xl ml-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum quae architecto minus molestias iusto ducimus fuga quo quia libero dignissimos, fugiat modi assumenda debitis laboriosam.</div>
+          <div class="flex-1 text-lg sm:text-xl ml-6">Full-Stack developer, focused on final product and client satisfaction. I try my best to solve the problems smartly and following the best practices.</div>
         </div>
 
-        <div class="responsive-container">
-          <iframe class="responsive-iframe w-full h-full top-0 left-0 border-0" src="https://www.youtube.com/embed/uHo6o1TNQeE" style="border:0;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="mx-auto bg-gray-500">
         </div>
       </div> <!-- end get-to-know me -->
     </div>
@@ -74,10 +70,10 @@
             <svg width="170px" height="170px"><use xlink:href="#dots-triangle" /></svg>
           </div>
 
-          <p class="mb-12">Static sites cannot submit forms on their own. However, services like <a href="https://www.netlify.com/docs/form-handling">Netlify Forms</a> or <a href="https://formspree.io">FormSpree</a> can help you do this without a backend.</p>
+          <p class="mb-12"></p>
 
           <div class="text-lg sm:text-lg mb-16">
-            <form action="#" class="mb-12">
+            <form name="contact" method="POST" data-netlify="true" action='/contact/success' class="mb-12">
               <div class="flex flex-wrap mb-6 -mx-4">
                   <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
                       <label class="block mb-2 text-copy-primary" for="name">
@@ -118,7 +114,7 @@
         <h2 class="text-2xl font-bold mb-8">Join my Newsletter</h2>
 
         <div class="w-4/5 mx-auto mb-8">
-          <p class="mb-8 text-lg sm:text-xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, voluptatum. Quam, deleniti nulla.</p>
+          <p class="mb-8 text-lg sm:text-xl">This is not really working. 😅</p>
 
           <form action="#" netlify>
             <div class="flex flex-col sm:flex-row">
@@ -146,7 +142,37 @@ export default {
   },
   data() {
     return {
-      cvPath: '../ricvillagrana-cv.pdf'
+      cvPath: '../ricvillagrana-cv.pdf',
+      jobs: [
+        {
+          title: 'Full-Stack Developer',
+          company: 'TangoSource LLC',
+          duration: 'Jan 2019 - Now',
+          description: 'While working on Tango, I collaborate with many people from diferent countries, mainly United States and Canada, and my teams are almost fully remote.',
+          techStack: ['Ruby on Rails', 'Node.js', 'React.js', 'Docker', 'AWS', 'Microservices']
+        },
+        {
+          title: 'MagmaHacker',
+          company: 'MagmaLabs',
+          duration: 'Aug 2018 - Jan 2019',
+          description: 'I participated in an intensive mentoring program designed to train talented software developers who adopt best programming practices, while working with agile methodologies.',
+          techStack: ['Ruby on Rails', 'React.js', 'Vue.js']
+        },
+        {
+          title: 'Full-Stack Developer',
+          company: 'Caliber Retail Properties Group, Inc.',
+          duration: 'Aug 2017 - May 2018',
+          description: 'On Caliber Retail Properties Group, Inc. I migrated from Microsoft Windows Server to Linux Server in a Plesk platform. Fixed legacy code from the backend, added functionalities and fix design errors on the site. This project was first real contact to clients in english for me.',
+          techStack: ['JavaScript', 'PHP', 'CSS']
+        },
+        {
+          title: 'Team Lead & Full-Stack Developer',
+          company: 'ISSSTE Colima',
+          duration: 'Dec 2016 - Aug 2017',
+          description: 'ISSSTE is a Mexican government organization that administers part of the health care and social security, offers assistance in cases of disability, old age, work risks and death, to state workes. My role here was offer and improve acessibility to the right holders to all the activities and services offered by the institute.',
+          techStack: ['JavaScript', 'PHP', 'CSS', 'Vue.js', 'CodeIgniter']
+        }
+      ]
     }
   }
 }
